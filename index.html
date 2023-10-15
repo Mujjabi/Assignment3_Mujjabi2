@@ -12,13 +12,18 @@
         integrity="sha256-GfFZ6w7V/y3Ws9eHVsOXZ/F1ZFroThVZraOAx3HAt6s=" crossorigin="anonymous"></script>"
 
 <body>
-    <h1>Interactive Visualization using Vega-lite</h1>
-    <p> The is an example of an interactive plot using the movies data.</p>
+    <h1>Interactive Visualization of the Building Inventory Dataset</h1>
+    <p> Below is an example of an interactive visualization using vega-lite. The first graph shows the total square
+        footage acquired by each congressional district. The second chart is a scatter plot showing the relationship
+        between the year constructed and the year acquired</p>
+    <p> The interativity is seen when a certain congressional district is selected in the chart one, chart 2 will
+        highlight the specific years when the square footage that belong to that particular congressional district were
+        contructed and acquired.</p>
     <div id="viz"></div>
     <script>
         var vlSpec = {
             "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "data": { "url": "data/building_inventory.csv" },
+            "data": { "url": "building_inventory.csv" },
             "params": [{ "name": "myfirstparam", "select": "interval" }],
             "hconcat": [
                 {
@@ -35,11 +40,11 @@
                     "mark": "point",
                     "encoding": {
                         "x": {
-                            "field": "US Gross",
+                            "field": "Year Constructed",
                             "type": "quantitative"
                         },
                         "y": {
-                            "field": "Worldwide Gross", "type": "quantitative"
+                            "field": "Year Acquired", "type": "quantitative"
                         },
                         "color": { "value": "grey", "condition": { "param": "myfirstparam" } }
                     }
@@ -49,7 +54,6 @@
         vegaEmbed("#viz", vlSpec);
     </script>
 </body>
-<p>This is an example paragraph. You can do things here like <strong> strongly</strong>. you can also <em>
-        emphasize</em> </p>
+<p> I think this is a very interesting interactive visualization. </p>
 
 </html>
