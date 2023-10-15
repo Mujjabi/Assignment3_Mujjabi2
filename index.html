@@ -12,7 +12,7 @@
         integrity="sha256-GfFZ6w7V/y3Ws9eHVsOXZ/F1ZFroThVZraOAx3HAt6s=" crossorigin="anonymous"></script>"
 
 <body>
-    <h1>Interactive Visualization of the Building Inventory Dataset</h1>
+    <h1>Interactive Visualization Using the Building Inventory Dataset</h1>
     <p> Below is an example of an interactive visualization using vega-lite. The first graph shows the total square
         footage acquired by each congressional district. The second chart is a scatter plot showing the relationship
         between the year constructed and the year acquired</p>
@@ -41,10 +41,10 @@
                     "encoding": {
                         "x": {
                             "field": "Year Constructed",
-                            "type": "ordinal"
+                            "type": "temporal"
                         },
                         "y": {
-                            "field": "Year Acquired", "type": "ordinal"
+                            "field": "Year Acquired", "type": "temporal"
                         },
                         "color": { "value": "grey", "condition": { "param": "myfirstparam" } }
                     }
