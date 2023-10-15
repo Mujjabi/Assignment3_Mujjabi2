@@ -27,10 +27,10 @@
             "params": [{ "name": "myfirstparam", "select": "interval" }],
             "hconcat": [
                 {
-                    "mark": "bar",
+                    "mark": "point",
                     "encoding": {
                         "x": {
-                            "field": "Agency Name", "type": "ordinal"
+                            "field": "Year Acquired", "type": "temporal"
 
                         },
                         "y": { "aggregate": "sum", "field": "Square Footage" }
@@ -40,11 +40,11 @@
                     "mark": "point",
                     "encoding": {
                         "x": {
-                            "field": "Year Constructed",
-                            "type": "temporal"
+                            "field": "Agency Name",
+                            "type": "Ordinal"
                         },
                         "y": {
-                            "field": "Year Acquired", "type": "temporal"
+                            "aggregate": "sum", "field": "Square Footage", "type": "Quantitative"
                         },
                         "color": { "value": "orange", "condition": { "param": "myfirstparam" } }
                     }
