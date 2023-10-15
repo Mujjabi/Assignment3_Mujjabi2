@@ -14,11 +14,11 @@
 <body>
     <h1>Interactive Visualization Using the Building Inventory Dataset</h1>
     <p> Below is an example of an interactive visualization using vega-lite. The first graph shows the total square
-        footage acquired by each congressional district. The second chart is a scatter plot showing the relationship
-        between the year constructed and the year acquired</p>
-    <p> The interativity is seen when a certain congressional district is selected in the chart one, chart 2 will
-        highlight the specific years when the square footage that belong to that particular congressional district were
-        contructed and acquired.</p>
+        footage acquired each year. The second graph is a barchart showing the total square footage acquired by each
+        agency</p>
+    <p> The interativity is seen when a certain year is selected in the chart one, chart 2 will
+        highlight the specific agencies that acquired buildings (square footage) in that given year. The selected
+        agencies will be highlighted in an orange color. </p>
     <div id="viz"></div>
     <script>
         var vlSpec = {
