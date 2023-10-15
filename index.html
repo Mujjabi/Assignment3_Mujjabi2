@@ -27,7 +27,7 @@
             "params": [{ "name": "myfirstparam", "select": "interval" }],
             "vconcat": [
                 {
-                    "width": 480,
+                    "width": 550,
                     "mark": "line",
                     "encoding": {
                         "x": {
@@ -38,13 +38,14 @@
                     }
                 },
                 {
+                    "width": 550,
                     "mark": "bar",
                     "encoding": {
-                        "y": {
+                        "x": {
                             "field": "Agency Name",
                             "type": "nominal"
                         },
-                        "x": {
+                        "y": {
                             "aggregate": "sum", "field": "Square Footage", "type": "Quantitative"
                         },
                         "color": { "value": "orange", "condition": { "param": "myfirstparam" } }
