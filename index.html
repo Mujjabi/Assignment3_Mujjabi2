@@ -31,7 +31,7 @@
                     "encoding": {
                         "x": {
                             "field": " Congress Dist", "type": "ordinal",
-                            "bin": true
+                            "bin": false
                         },
                         "y": { "aggregate": "sum", "field": "Square Footage" }
                     }
@@ -41,10 +41,10 @@
                     "encoding": {
                         "x": {
                             "field": "Year Constructed",
-                            "type": "quantitative"
+                            "type": "ordinal"
                         },
                         "y": {
-                            "field": "Year Acquired", "type": "quantitative"
+                            "field": "Year Acquired", "type": "ordinal"
                         },
                         "color": { "value": "grey", "condition": { "param": "myfirstparam" } }
                     }
