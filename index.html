@@ -19,43 +19,54 @@
     <p> The interativity is seen when a certain year is selected in the chart one, chart 2 will
         highlight the specific agencies that acquired buildings (square footage) in that given year. The selected
         agencies will be highlighted in an orange color. </p>
-    <div id="viz"></div>
+    <div id="yieldmap2"></div>
     <script>
-        var vlSpec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "data": { "url": "building_inventory.csv" },
-            "params": [{ "name": "myfirstparam", "select": "interval" }],
-            "vconcat": [
-                {
-                    "width": 750,
-                    "height": 300,
-                    "mark": "line",
-                    "encoding": {
-                        "x": {
-                            "field": "Year Acquired", "type": "temporal"
+var yieldmap2 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "https://raw.githubusercontent.com/Mujjabi/DevOps/main/Python/IS445_Final_Project/Data_FinalProject.csv"},
+  "title": "Yield Map per Location",
+  "config": {
+    "view": {
+      "strokeWidth": 1,
+      "step": 25
+    },
+    "axis": {
+      "domain": false
+    }
+  },
+  "facet": {
+    "row": {"field": "Location", "type": "ordinal"}
+  },
+  "selection": {
+    "hover": {"type": "single", "fields": ["Hybrid"], "empty": "none"}
+  },
+  "spec": {
+    "mark": "rect",
+    "encoding": {
+      "x": {"field": "Range","type": "ordinal","title": "Range",
+        "axis": {"labelAngle": 0},
+        "sort": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"]
+      },
+      "y": {"field": "Row","type": "ordinal","title": "Row","sort": ["-y"]
+      },
+      "color": {"field": "YIELD", "aggregate": "max", "type": "quantitative","legend": {"title": "Yield"}
+      },
+      "tooltip": [
+        {"field": "Hybrid", "type": "nominal", "title": "Hybrid"},
+        {"field": "Nitrogen", "type": "nominal", "title": "Nitro"},
+        {"field": "Weed_Pressure", "type": "nominal", "title": "Weed"},
+        {"field": "YIELD", "type": "quantitative", "title": "Yield"}
+      ]
+    },
+    "config": {"scale": {"bandPaddingInner": 0.1}
+    },
+    "selection": {
+      "highlight": {"type": "single", "encodings": ["row", "column"],"empty": "none","on": "mouseover"}
+    }
+  }
+};
 
-                        },
-                        "y": { "aggregate": "sum", "field": "Square Footage" }
-                    }
-                },
-                {
-                    "width": 750,
-                    "height": 300,
-                    "mark": "bar",
-                    "encoding": {
-                        "x": {
-                            "field": "Agency Name",
-                            "type": "nominal"
-                        },
-                        "y": {
-                            "aggregate": "sum", "field": "Square Footage", "type": "Quantitative"
-                        },
-                        "color": { "value": "orange", "condition": { "param": "myfirstparam" } }
-                    }
-                }
-            ]
-        };
-        vegaEmbed("#viz", vlSpec);
+var embedcor = await vegaEmbed("#yieldmap2", yieldmap2);
     </script>
 </body>
 <p> I think this is a very interesting interactive visualization. </p>
